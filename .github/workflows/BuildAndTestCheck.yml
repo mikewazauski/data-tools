@@ -1,0 +1,66 @@
+name: CI ZeekSoporte
+
+# Only execute with a pull request, to save minutes (only 2000 minutes free)
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - master*
+      - hotfix*
+      - bugfix*
+      - feature*
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 14.18.1
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.18.1
+      - name: Clear dependencies
+        run: npm cache clean --force
+      - name: Install dependencies
+        run: npm install
+
+      # To validate the build, and compilation errors (ng build)
+      - name: Build
+        run: npm run build-prod
+
+  unit-test:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 14.18.1
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.18.1
+      - name: Clear dependencies
+        run: npm cache clean --force
+      - name: Install dependencies
+        run: npm install
+
+      # To validate the unit tests (ng test)
+      - name: Test
+        run: npm run test:ci
+
+  eslint:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 14.18.1
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.18.1
+      - name: Clear dependencies
+        run: npm cache clean --force
+
+      - name: Install dependencies
+        run: |-
+          npm install
+          npm install -g npm@6.14.15
+
+      # To validate code quality (ng lint)
+      - name: Run linter
+        run: npm run lint

@@ -1,0 +1,26 @@
+@import 'src/style/vars/variables';
+
+.header-container {
+    height: $s-main-header;
+    position: relative;
+    width: 100%;
+    box-shadow: 0 4px 4px #00000040;
+
+    .progress-bar {
+        width: 100% !important;
+        height: $s-base;
+    }
+
+    h1 {
+        margin: $s-base 0 0;
+        padding: 0;
+        cursor: default;
+        text-rendering: optimizeLegibility;
+    }
+
+    .logout-container {
+        top: $s-base-2x;
+        position: absolute;
+        right: $s-base-2x;
+    }
+}

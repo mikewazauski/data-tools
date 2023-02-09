@@ -1,0 +1,55 @@
+@use 'sass:map';
+
+@import 'src/style/vars/base-colors';
+@import './style/vars/fonts';
+@import './style/vars/variables';
+@import '~bootstrap/scss/bootstrap';
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $lightTheme-secondary-body-color;
+}
+
+.main-container {
+  position: relative;
+  min-height: 100vh !important;
+  margin-bottom: -$p-main-container;
+}
+
+.body-container {
+  position: relative;
+  padding: $s-base $s-base (
+    $p-main-container + $s-base
+  );
+height: auto;
+width: 100%;
+}
+
+.text-brand {
+  color: $color-brand-logo;
+}
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: $primary !important;
+}
+
+.smooth-message {
+  width: 100%;
+  font-size: larger;
+  font-weight: lighter;
+  color: $color-brand-secondary;
+  margin: $s-base auto;
+  text-align: center;
+}
+
+.pointer {
+  cursor: pointer;
+}

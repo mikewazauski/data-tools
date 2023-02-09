@@ -1,0 +1,106 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+@import 'src/style/vars/color-palette';
+@import './vars/fonts';
+
+$custom-typography: mat.define-typography-config(
+  $font-family: $fonts-brand,
+  $display-4: mat.define-typography-level(112px, 112px, $fontWeights-light, $fonts-brand, -0.0134em),
+  $display-3: mat.define-typography-level(56px, 56px, $fontWeights-normal, $fonts-brand, -0.0089em),
+  $display-2: mat.define-typography-level(45px, 48px, $fontWeights-normal, $fonts-brand, 0em),
+  $display-1: mat.define-typography-level(34px, 40px, $fontWeights-normal, $fonts-brand, 0.0074em),
+  $headline: mat.define-typography-level(24px, 32px, $fontWeights-normal, $fonts-brand, 0em),
+  $title: mat.define-typography-level(20px, 32px, 500, $fonts-brand, 0.0075em),
+  $subheading-2: mat.define-typography-level($fontSizes-md, $lineHeights-6, $fontWeights-normal, $fonts-brand, 0.0094em),
+  $subheading-1: mat.define-typography-level($fontSizes-sm, $lineHeights-5, $fontWeights-medium, $fonts-brand, 0.0067em),
+  $body-2: mat.define-typography-level($fontSizes-md, $lineHeights-6, $fontWeights-medium, $fonts-brand, 0.0179em),
+  $body-1: mat.define-typography-level($fontSizes-md, $lineHeights-5, $fontWeights-normal, $fonts-brand, 0.0179em),
+  $button: mat.define-typography-level($fontSizes-md, $lineHeights-3, $fontWeights-medium, $fonts-brand, 0.0893em),
+  $caption: mat.define-typography-level($fontSizes-sm, $lineHeights-5, $fontWeights-normal, $fonts-brand, 0.0333em),
+  $input: mat.define-typography-level(inherit, 1.25, $fontWeights-normal, $fonts-brand, 1.5px)
+);
+
+$lightTheme-default-hue: 500;
+$lightTheme-lighter-hue: 200;
+$lightTheme-darker-hue: 800;
+
+$lightTheme-primary: mat.define-palette($brand-primary-palette, $lightTheme-default-hue, $lightTheme-lighter-hue, $lightTheme-darker-hue);
+$lightTheme-secondary: mat.define-palette(
+  $brand-secondary-palette,
+  $lightTheme-default-hue,
+  $lightTheme-lighter-hue,
+  $lightTheme-darker-hue
+);
+$lightTheme-success: mat.define-palette($brand-primary-palette, $lightTheme-default-hue, $lightTheme-lighter-hue, $lightTheme-darker-hue);
+$lightTheme-danger: mat.define-palette($brand-danger-palette, $lightTheme-default-hue, $lightTheme-lighter-hue, $lightTheme-darker-hue);
+$lightTheme-warn: mat.define-palette($brand-warning-palette, $lightTheme-default-hue, $lightTheme-lighter-hue, $lightTheme-darker-hue);
+$lightTheme-info: mat.define-palette($brand-info-palette, $lightTheme-default-hue, $lightTheme-lighter-hue, $lightTheme-darker-hue);
+$lightTheme-accent: mat.define-palette($brand-dark-palette, $lightTheme-default-hue, $lightTheme-lighter-hue, $lightTheme-darker-hue);
+
+$light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $lightTheme-primary,
+      secondary: $lightTheme-secondary,
+      success: $lightTheme-success,
+      danger: $lightTheme-danger,
+      warn: $lightTheme-warn,
+      info: $lightTheme-info,
+      accent: $lightTheme-accent
+    ),
+    typography: $custom-typography
+  )
+);
+
+$darkTheme-default-hue: 300;
+$darkTheme-lighter-hue: 50;
+$darkTheme-darker-hue: 600;
+
+$darkTheme-primary: mat.define-palette($brand-primary-palette, $darkTheme-default-hue, $darkTheme-lighter-hue, $darkTheme-darker-hue);
+$darkTheme-secondary: mat.define-palette($brand-secondary-palette, $darkTheme-default-hue, $darkTheme-lighter-hue, $darkTheme-darker-hue);
+$darkTheme-success: mat.define-palette($brand-primary-palette, $darkTheme-default-hue, $darkTheme-lighter-hue, $darkTheme-darker-hue);
+$darkTheme-danger: mat.define-palette($brand-danger-palette, $darkTheme-default-hue, $darkTheme-lighter-hue, $darkTheme-darker-hue);
+$darkTheme-warn: mat.define-palette($brand-warning-palette, $darkTheme-default-hue, $darkTheme-lighter-hue, $darkTheme-darker-hue);
+$darkTheme-info: mat.define-palette($brand-info-palette, $darkTheme-default-hue, $darkTheme-lighter-hue, $darkTheme-darker-hue);
+$darkTheme-accent: mat.define-palette($brand-light-palette, $darkTheme-default-hue, $darkTheme-lighter-hue, $darkTheme-darker-hue);
+
+$dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $darkTheme-primary,
+      secondary: $darkTheme-secondary,
+      success: $darkTheme-success,
+      danger: $darkTheme-danger,
+      warn: $darkTheme-warn,
+      info: $darkTheme-info,
+      accent: $darkTheme-accent
+    ),
+    typography: $custom-typography
+  )
+);
+
+@include mat.core($custom-typography);
+
+@include mat.all-component-themes($light-theme);
+
+.mat-raised-button,
+.mat-stroked-button,
+.mat-flat-button {
+  padding: 0 1.15em;
+  margin: 0 0.65em;
+  min-width: 3em;
+  line-height: 36.4px;
+}
+
+.mat-standard-chip {
+  padding: 0.375em 0.5em;
+  min-height: 2em;
+}
+
+.mat-list-base .mat-list-item,
+.mat-list-base .mat-list-option {
+  height: auto !important;
+  line-height: $lineHeights-6;
+}

@@ -1,0 +1,16 @@
+@import 'src/style/vars/variables';
+
+.footer-container {
+  height: $p-main-container;
+  position: relative;
+  width: 100%;
+
+  .app-copyright {
+    font-size: small;
+  }
+
+  .app-version {
+    font-size: small;
+    white-space: nowrap;
+  }
+}

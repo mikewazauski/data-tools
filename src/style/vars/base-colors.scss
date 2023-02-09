@@ -1,0 +1,101 @@
+/* Dexcom colors [BEGIN] */
+$color-brand-logo: #0db02b;
+
+// Primary palette main colors
+$color-brand-primary-light: #0db02b;
+$color-brand-primary: #137d00;
+$color-brand-primary-medium: #025f1d;
+
+// Secondary palette main colors
+$color-brand-secondary-light: #b8babc;
+$color-brand-secondary: #5e6d7e;
+$color-brand-secondary-medium: #3f4955;
+
+// Success palette main color
+$color-brand-success: #137d00;
+// Info palette main color
+$color-brand-info: #106bad;
+// Warning palette main color
+$color-brand-warning: #f8ad3e;
+// Danger palette main color
+$color-brand-danger: #ad1010;
+
+// Light palette main colors
+$color-brand-light: #f5f5f5;
+$color-brand-light-medium: #dcdbda;
+
+// Accent and dark palette main color
+$color-brand-dark: #161a1d;
+
+// Definition of white
+$color-brand-white: #ffffff;
+// Definition of black
+$color-brand-black: #000000;
+
+$color-brand-blackOpacity: rgba(0, 0, 0, 0.55);
+$color-brand-grayOpacity: rgba(22, 26, 29, 0.5);
+
+$color-brand-lightOpacity: rgba(245, 245, 245, 0.9);
+$color-brand-whiteOpacity: rgba(255, 255, 255, 0.5);
+
+/* Dexcom colors [END] */
+
+/* Custom colors [BEGIN] */
+
+// Light Theme Text
+$lightTheme-primary-text-color: $color-brand-dark;
+$dark-primary-text: rgba($lightTheme-primary-text-color, 0.87);
+$dark-accent-text: rgba($dark-primary-text, 0.54);
+$dark-disabled-text: rgba($dark-primary-text, 0.38);
+$dark-dividers: rgba($dark-primary-text, 0.12);
+$dark-focused: rgba($dark-primary-text, 0.12);
+
+$lightTheme-primary-text-color: $color-brand-dark;
+$lightTheme-primary-disabled-text-color: rgba($lightTheme-primary-text-color, 0.38);
+$lightTheme-secondary-text-color: $color-brand-black;
+$lightTheme-secondary-disabled-text-color: rgba($lightTheme-secondary-text-color, 0.38);
+
+$lightTheme-primary-link-color: $color-brand-secondary;
+$lightTheme-secondary-link-color: $color-brand-secondary-medium;
+
+$lightTheme-primary-body-color: $color-brand-white;
+$lightTheme-secondary-body-color: $color-brand-light;
+
+$darkTheme-primary-text-color: $color-brand-white;
+$darkTheme-secondary-text-color: $color-brand-light;
+
+$darkTheme-primary-link-color: $color-brand-light;
+$darkTheme-secondary-link-color: $color-brand-light-medium;
+
+$darkTheme-primary-body-color: $color-brand-dark;
+$darkTheme-secondary-body-color: $color-brand-black;
+
+/* Custom colors [END] */
+
+/* Bootstrap overwrites [BEGIN] */
+
+$primary: $color-brand-primary !default;
+$secondary: $color-brand-secondary !default;
+$success: $color-brand-success !default;
+$info: $color-brand-info !default;
+$warning: $color-brand-warning !default;
+$danger: $color-brand-danger !default;
+$light: $color-brand-light !default;
+$dark: $color-brand-dark !default;
+$white: $color-brand-white !default;
+$black: $color-brand-dark !default;
+
+$theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark,
+  'white': $white,
+  'black': $black
+);
+
+/* Bootstrap overwrites [END] */
