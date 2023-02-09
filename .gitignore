@@ -55,6 +55,7 @@ Thumbs.db
 /src/assets/config/config.json
 /configurations
 !/package-lock.json
+package-lock.json
 
 # scannerwork
 .scannerwork
