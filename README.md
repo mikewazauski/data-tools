@@ -1,6 +1,6 @@
-# Zeek Soporte [![Angular version](https://img.shields.io/badge/Angular%20CLI-v13.3.9-brightgreen)](https://github.com/angular/angular-cli) [![npm version](https://img.shields.io/badge/npm-v8.11.0-brightgreen)](https://www.npmjs.com/package/npm/v/8.11.0) [![node version](https://img.shields.io/badge/node-v12.2.0-brightgreen)](https://nodejs.org/tr/blog/release/v16.15.1/) [![TypeScript version](https://img.shields.io/badge/TypeScript-v4.6.4-brightgreen)](https://www.npmjs.com/package/typescript/v/4.7.4) 
+# Data Tools Admin [![Angular version](https://img.shields.io/badge/Angular%20CLI-v13.3.9-brightgreen)](https://github.com/angular/angular-cli) [![npm version](https://img.shields.io/badge/npm-v8.11.0-brightgreen)](https://www.npmjs.com/package/npm/v/8.11.0) [![node version](https://img.shields.io/badge/node-v12.2.0-brightgreen)](https://nodejs.org/tr/blog/release/v16.15.1/) [![TypeScript version](https://img.shields.io/badge/TypeScript-v4.6.4-brightgreen)](https://www.npmjs.com/package/typescript/v/4.7.4) 
 
-Zeek Soporte is a data tool which allows users to manage their clients, check devices status and get general statistics of their assets.
+ Data Tools Admin is a data tool which allows users to manage their clients, check devices status and get general statistics of their assets.
 
 ## Table of Contents
 - [Documentation](#documentation)
@@ -15,7 +15,7 @@ Zeek Soporte is a data tool which allows users to manage their clients, check de
 - [URL](#url)
 
 ## Documentation
-Zeek Soporte is developed in Angular and uses Angular Material for styiling. To get more information please follow the following links.
+Data Tools Admin is developed in Angular and uses Angular Material for styiling. To get more information please follow the following links.
 - [Angular](https://angular.io/docs)
 - [Angular Material](https://material.angular.io/)
 
