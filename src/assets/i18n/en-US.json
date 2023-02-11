@@ -22,7 +22,7 @@
       "viewDetails": "View details"
     },
     "footer": {
-      "copyright": "Argus Telematics. All rights reserved.",
+      "copyright": "@YourCompanyName. All rights reserved.",
       "version": "Version {{ appVersion }}"
     },
     "message": {
@@ -40,7 +40,7 @@
     }
   },
   "app": {
-    "name": "Zeek GPS Support"
+    "name": "Data Tools Admin"
   },
   "forms": {
     "login": {

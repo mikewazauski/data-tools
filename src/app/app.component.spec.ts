@@ -32,9 +32,9 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should have as title \'zeek-soporte\'', () => {
+  it('should have as title \'data-tools\'', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('zeek-soporte');
+    expect(app.title).toEqual('data-tools');
   });
 });

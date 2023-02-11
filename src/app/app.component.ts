@@ -7,7 +7,7 @@ import { AuthService } from './services/auth/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'zeek-soporte';
+  title = 'data-tools';
 
   constructor(private auth: AuthService) {
     this.auth.initAuthListener();
