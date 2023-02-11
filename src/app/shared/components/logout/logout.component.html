@@ -1,6 +1,6 @@
 <div class="logout" fxHide="{{ !user }}">
     <button class="user-icon" mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger"
-        (mouseover)="menuTrigger.openMenu()">
+        (click)="menuTrigger.openMenu()">
         <mat-icon class="black-icon">perm_identity</mat-icon>
     </button>
 
@@ -11,11 +11,11 @@
                 <mat-card-subtitle>{{ user?.email }}</mat-card-subtitle>
             </mat-card-header>
         </mat-card>
-        <span (mouseleave)="menuTrigger.closeMenu()">
-            <button mat-menu-item (click)="logout()">
-                <mat-icon>exit_to_app</mat-icon>
-                <span>Logout</span>
-            </button>
-        </span>
+
+        <button mat-menu-item (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+        </button>
+
     </mat-menu>
 </div>

@@ -1,4 +1,4 @@
-name: CI ZeekSoporte
+name: CI Data Tools Admin
 
 # Only execute with a pull request, to save minutes (only 2000 minutes free)
 on:

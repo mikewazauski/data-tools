@@ -8,13 +8,13 @@ export const environment = {
   appVersion: '0.0.0.0',
   idleTimeOutMinutes: 5,
   firebase: {
-    projectId: 'zeek-soporte',
-    appId: '1:1010741301447:web:68f86b212892055001aee2',
-    storageBucket: 'zeek-soporte.appspot.com',
-    apiKey: 'AIzaSyAfAu4MVNP4lq_Eq2ajih3JodClnhsB_C4',
-    authDomain: 'zeek-soporte.firebaseapp.com',
-    messagingSenderId: '1010741301447',
-    measurementId: 'G-X4095Q4LNB',
+    apiKey: 'AIzaSyCwDWkardnWJodYJ8Cprcb7qyJuGenXaBI',
+    authDomain: 'data-tools-de0a7.firebaseapp.com',
+    projectId: 'data-tools-de0a7',
+    storageBucket: 'data-tools-de0a7.appspot.com',
+    messagingSenderId: '705095971825',
+    appId: '1:705095971825:web:34203dc684679e8cfe8a50',
+    measurementId: 'G-7D7SY3V84H'
   },
 };
 

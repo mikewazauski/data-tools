@@ -69,7 +69,7 @@ export class LandingComponent implements OnInit {
           icon: 'error',
           title: 'Oops...',
           text: error.message,
-          confirmButtonColor: '#0db02b',
+          confirmButtonColor: '#1877f2',
         });
         console.error(error);
       });

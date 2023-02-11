@@ -1,14 +1,16 @@
-<header class="header-container bg-white">
-  <app-progress-bar class="progress-bar"></app-progress-bar>
-  <button mat-button (click)="onToggleSidenav()" *ngIf="showSideBarIcon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <div class="d-flex flex-column align-items-center h-100">
-    <h1 class="text-brand">
-      {{ "app.name" | translate }}
-    </h1>
-    <div class="logout-container">
-      <app-logout></app-logout>
-    </div>
-  </div>
-</header>
+<mat-toolbar color="primary" class="navi">
+
+  <mat-toolbar-row *ngIf="user">
+    <button mat-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <mat-icon class="pointer example-icon" matTooltip="Dashboard" matTooltipPosition="right">
+      desktop_windows</mat-icon>
+    <span class="example-spacer"></span>
+
+    <app-logout [user]="user"></app-logout>
+
+  </mat-toolbar-row>
+
+</mat-toolbar>
