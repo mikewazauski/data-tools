@@ -10,7 +10,12 @@ import { AppTranslateModule } from '../modules/translate.module';
 import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, ProgressBarComponent, LogoutComponent],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    ProgressBarComponent,
+    LogoutComponent,
+  ],
   imports: [CommonModule, MaterialModule, FlexLayoutModule, TranslateModule],
   exports: [
     FooterComponent,
@@ -19,7 +24,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     MaterialModule,
     FlexLayoutModule,
     TranslateModule,
-    AppTranslateModule
+    AppTranslateModule,
   ],
 })
-export class SharedModule { }
+export class SharedModule {}
