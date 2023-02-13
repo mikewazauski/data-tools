@@ -1,5 +1,7 @@
-.resize {
-    width: 300px;
+.user-container {
+    height: 200px;
+    position: relative;
+    margin-top: 20px;
 }
 
 .vertical-center {
@@ -10,6 +12,10 @@
     transform: translateY(-50%);
 }
 
-.center-text {
+.margin-divider {
+    margin: 40px 0px 0px 0px;
+}
+
+.text-center {
     text-align: center;
 }

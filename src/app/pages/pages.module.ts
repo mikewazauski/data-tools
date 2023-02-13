@@ -17,6 +17,6 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [AuthGuard]
+  providers: [AuthGuard],
 })
-export class PagesModule { }
+export class PagesModule {}
