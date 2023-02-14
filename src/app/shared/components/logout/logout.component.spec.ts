@@ -20,12 +20,19 @@ describe('LogoutComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [LogoutComponent],
-      imports: [FlexLayoutModule, MaterialModule, AppTranslateModule,
-        HttpClientModule, StoreModule.forRoot(appReducers), AngularFirestoreModule,
-        AngularFirestoreModule, AngularFireModule.initializeApp(environment.firebase),
-        AngularFireAuthModule, RouterTestingModule]
-    })
-      .compileComponents();
+      imports: [
+        FlexLayoutModule,
+        MaterialModule,
+        AppTranslateModule,
+        HttpClientModule,
+        StoreModule.forRoot(appReducers),
+        AngularFirestoreModule,
+        AngularFirestoreModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireAuthModule,
+        RouterTestingModule,
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {

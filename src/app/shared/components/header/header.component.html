@@ -1,16 +1,8 @@
+<app-progress-bar></app-progress-bar>
 <mat-toolbar color="primary" class="navi">
-
   <mat-toolbar-row *ngIf="user">
     <button mat-button (click)="onToggleSidenav()">
       <mat-icon>menu</mat-icon>
     </button>
-
-    <mat-icon class="pointer example-icon" matTooltip="Dashboard" matTooltipPosition="right">
-      desktop_windows</mat-icon>
-    <span class="example-spacer"></span>
-
-    <app-logout [user]="user"></app-logout>
-
   </mat-toolbar-row>
-
 </mat-toolbar>

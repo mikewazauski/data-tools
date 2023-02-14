@@ -71,7 +71,6 @@ export class LandingComponent implements OnInit {
           text: error.message,
           confirmButtonColor: '#1877f2',
         });
-        console.error(error);
       });
   }
 }

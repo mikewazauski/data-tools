@@ -1,68 +1,82 @@
-<section class="landing-page-section text-center m-3">
-  <div class="row justify-content-center">
-    <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-3">
-      <div class="bg-white border rounded shadow pb-3 ps-3 pe-3">
-        <div class="landing-page-img-container">
-          <img
-            class="landing-page-logo mw-100"
-            src="assets/img/logo.png"
-
-          />
-        </div>
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-          <div class="example-container">
-            <mat-form-field>
-              <input
-                matInput
-                placeholder="{{
-                  'forms.login.usernamePlaceholder' | translate
-                }}"
-                type="email"
-                name="username"
-                formControlName="username"
-                autocomplete="off"
-              />
-              <mat-error>{{
-                "forms.login.usernameError" | translate
-              }}</mat-error>
-            </mat-form-field>
-
-            <mat-form-field class="margin-bottom-sm">
-              <input
-                matInput
-                placeholder="{{
-                  'forms.login.passwordPlaceholder' | translate
-                }}"
-                [type]="hidePassword ? 'password' : 'text'"
-                name="password"
-                formControlName="password"
-                autocomplete="off"
-              />
-              <mat-icon
-                class="pointer"
-                matSuffix
-                (click)="hidePassword = !hidePassword"
-                >{{ hidePassword ? "visibility" : "visibility_off" }}</mat-icon
-              >
-              <mat-error>{{
-                "forms.login.passwordError" | translate
-              }}</mat-error>
-            </mat-form-field>
-            <button
-              type="submit"
-              color="primary"
-              mat-raised-button
-              [disabled]="invalidLogin"
-            >
-              {{ "general.buttons.logIn" | translate }}
-            </button>
-
-            <div fxLayout="row" fxLayoutAlign="end center" class="pointer">
-              {{ "general.message.forgotPassword" | translate }}
-            </div>
+<div class="vertical-center">
+  <section class="landing-page-section text-center m-3">
+    <div class="row justify-content-center">
+      <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-3">
+        <div class="bg-white border rounded shadow pb-3 ps-3 pe-3">
+          <div class="landing-page-img-container">
+            <img class="landing-page-logo mw-100" src="assets/img/logo.png" />
           </div>
-        </form>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="example-container">
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="{{
+                    'forms.login.usernamePlaceholder' | translate
+                  }}"
+                  type="email"
+                  name="username"
+                  formControlName="username"
+                  autocomplete="off"
+                />
+                <mat-error>{{
+                  "forms.login.usernameError" | translate
+                }}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="margin-bottom-sm">
+                <input
+                  matInput
+                  placeholder="{{
+                    'forms.login.passwordPlaceholder' | translate
+                  }}"
+                  [type]="hidePassword ? 'password' : 'text'"
+                  name="password"
+                  formControlName="password"
+                  autocomplete="off"
+                />
+                <mat-icon
+                  class="pointer"
+                  matSuffix
+                  (click)="hidePassword = !hidePassword"
+                  >{{
+                    hidePassword ? "visibility" : "visibility_off"
+                  }}</mat-icon
+                >
+                <mat-error>{{
+                  "forms.login.passwordError" | translate
+                }}</mat-error>
+              </mat-form-field>
+              <button
+                type="submit"
+                color="primary"
+                mat-raised-button
+                [disabled]="invalidLogin"
+              >
+                {{ "general.buttons.logIn" | translate }}
+              </button>
+
+              <div
+                fxLayout="row"
+                fxLayoutAlign="end center"
+                class="pointer margin-top-12"
+              >
+                {{ "general.message.forgotPassword" | translate }}
+              </div>
+            </div>
+          </form>
+
+          <mat-divider class="margin-divider"></mat-divider>
+
+          <span class="row margin-bottom-10">
+            <span class="center-text"> {{ "general.or" | translate }} </span>
+          </span>
+
+          <button type="button" class="login-with-google-btn" matRipple>
+            {{ "general.buttons.googleSignIn" | translate }}
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>

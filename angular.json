@@ -96,7 +96,11 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss", "src/style/custom-theme.scss"],
             "scripts": [],
-            "codeCoverageExclude": ["src/app/models/*.ts"]
+            "codeCoverageExclude": [
+              "src/app/models/*.ts",
+              "src/app/guard/*.guard.ts",
+              "src/app/utils/*.stub.ts"
+            ]
           }
         },
         "deploy": {

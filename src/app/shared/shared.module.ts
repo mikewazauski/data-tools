@@ -8,6 +8,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MaterialModule } from '../modules/material.module';
 import { AppTranslateModule } from '../modules/translate.module';
 import { LogoutComponent } from './components/logout/logout.component';
+import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,20 @@ import { LogoutComponent } from './components/logout/logout.component';
     FooterComponent,
     ProgressBarComponent,
     LogoutComponent,
+    NavMenuComponent,
   ],
-  imports: [CommonModule, MaterialModule, FlexLayoutModule, TranslateModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MaterialModule,
+    FlexLayoutModule,
+    TranslateModule,
+  ],
   exports: [
     FooterComponent,
     HeaderComponent,
     ProgressBarComponent,
+    NavMenuComponent,
     MaterialModule,
     FlexLayoutModule,
     TranslateModule,

@@ -17,11 +17,18 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeaderComponent], imports: [AngularFirestoreModule,
-        AngularFirestoreModule, AngularFireModule.initializeApp(environment.firebase),
-        AngularFireAuthModule, StoreModule.forRoot(appReducers), AppTranslateModule, HttpClientModule, TranslateModule]
-    })
-      .compileComponents();
+      declarations: [HeaderComponent],
+      imports: [
+        AngularFirestoreModule,
+        AngularFirestoreModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireAuthModule,
+        StoreModule.forRoot(appReducers),
+        AppTranslateModule,
+        HttpClientModule,
+        TranslateModule,
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -33,4 +40,9 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit toggleSideNav', () => {
+    component.onToggleSidenav();
+  });
+
 });

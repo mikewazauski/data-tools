@@ -1,21 +1,11 @@
-<div class="logout" fxHide="{{ !user }}">
-    <button class="user-icon" mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger"
-        (click)="menuTrigger.openMenu()">
-        <mat-icon class="black-icon">perm_identity</mat-icon>
-    </button>
-
-    <mat-menu #menu="matMenu" [overlapTrigger]="false">
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>{{ user?.name }}</mat-card-title>
-                <mat-card-subtitle>{{ user?.email }}</mat-card-subtitle>
-            </mat-card-header>
-        </mat-card>
-
-        <button mat-menu-item (click)="logout()">
-            <mat-icon>exit_to_app</mat-icon>
-            <span>Logout</span>
-        </button>
-
-    </mat-menu>
+<div *ngIf="user">
+  <img src="assets/img/user-avatar.png"/>
+  <mat-card class="no-box-shadow">
+    <mat-card-header class="header">
+      <mat-card-title>{{ user.name }}</mat-card-title>
+      <mat-card-subtitle>
+        {{ user.email }}
+      </mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
 </div>
