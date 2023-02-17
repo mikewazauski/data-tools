@@ -25,9 +25,6 @@ Example:
 
 Unit tests were runned manually.
 
-# Code Coverage
+# Pull Request Unit Test Coverage
 
-Example:
-
-- Previous code line coverage: 76%
-- Actual code line coverage: 81%
+73%
