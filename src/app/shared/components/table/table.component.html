@@ -1,0 +1,64 @@
+<div class="d-flex flex-column">
+  <mat-form-field appearance="standard">
+    <mat-label>{{ "general.filter" | translate }}</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="{{ 'general.filter' | translate }}"
+    />
+  </mat-form-field>
+
+  <div class="table-container">
+    <table
+      *ngIf="columns.length"
+      [dataSource]="dataSource"
+      mat-table
+      cdkDropList
+      cdkDropListOrientation="horizontal"
+      (cdkDropListDropped)="drop($event)"
+      matSort
+      (matSortChange)="announceSortChange($event)"
+    >
+      <ng-container *ngFor="let column of columns">
+        <ng-container matColumnDef="{{ column }}">
+          <th
+            cdkDrag
+            *matHeaderCellDef
+            mat-sort-header
+            mat-header-cell
+            scope="col"
+          >
+            {{ tableColumnName + column | translate }}
+          </th>
+          <td *matCellDef="let record" mat-cell>
+            {{ record[column] }}
+          </td>
+        </ng-container>
+      </ng-container>
+
+      <tr *matHeaderRowDef="columns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: columns" mat-row></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+          {{ "general.message.noData" | translate }}
+        </td>
+      </tr>
+    </table>
+
+    <div
+      *ngIf="!columns.length"
+      class="smooth-message d-flex align-items-center"
+      fxFlex
+      fxLayoutAlign="center"
+    >
+      <mat-label>{{ "general.message.noData" | translate }}</mat-label>
+    </div>
+  </div>
+
+  <mat-paginator
+    *ngIf="columns && columns.length"
+    [pageSizeOptions]="[10, 25, 50, 100]"
+    aria-label="Select page"
+  ></mat-paginator>
+</div>

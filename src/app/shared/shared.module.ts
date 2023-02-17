@@ -10,6 +10,7 @@ import { AppTranslateModule } from '../modules/translate.module';
 import { LogoutComponent } from './components/logout/logout.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { RouterModule } from '@angular/router';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { RouterModule } from '@angular/router';
     ProgressBarComponent,
     LogoutComponent,
     NavMenuComponent,
+    TableComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +33,7 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
     ProgressBarComponent,
     NavMenuComponent,
+    TableComponent,
     MaterialModule,
     FlexLayoutModule,
     TranslateModule,
