@@ -7,17 +7,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 import { MaterialModule } from '../modules/material.module';
 import { AppTranslateModule } from '../modules/translate.module';
-import { LogoutComponent } from './components/logout/logout.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { RouterModule } from '@angular/router';
 import { TableComponent } from './components/table/table.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     ProgressBarComponent,
-    LogoutComponent,
+    UserInfoComponent,
     NavMenuComponent,
     TableComponent,
   ],
