@@ -48,12 +48,11 @@ export class NavMenuComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.menuSubs = this.translate.get('menus').subscribe((values) => {
       this.subscription = this.store
-        .select('user')
         .pipe(filter((auth) => auth.user !== null))
         .subscribe({
-          next: ({ user }) => {
-            this.user = user;
-            const { menus } = user!!;
+          next: ({ user, ui }) => {
+            this.user = user.user;
+            const { menus } = ui;
             this.menus = menus.map((x: Menu) => {
               const menu = this.getMenu(x, values);
 

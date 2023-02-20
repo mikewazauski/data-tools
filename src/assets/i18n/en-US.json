@@ -23,7 +23,11 @@
       "preview": "Preview",
       "stay": "Stay",
       "viewDetails": "View details",
-      "googleSignIn": "Sign in with Google"
+      "googleSignIn": "Sign In with Google",
+      "twitterSignIn": "Sign In with Twitter",
+      "facebookSignIn": "Sign In with Facebook",
+      "githubSignIn": "Sign In with Github",
+      "appleSignIn": "Sign In with Apple"
     },
     "footer": {
       "copyright": "@YourCompanyName. All rights reserved.",

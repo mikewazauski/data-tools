@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { AppState } from '../../store/app.reducer';
 import { AuthService } from '../../services/auth/auth.service';
-import { isLoading, stopLoading } from '../../store/actions/ui.actions';
-import Swal from 'sweetalert2';
-import { Subscription } from 'rxjs';
+import { SSOProviders } from '../../models/enums/sso.enum';
 
 @Component({
   selector: 'app-landing',
@@ -17,17 +13,15 @@ export class LandingComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService,
-    private store: Store<AppState>
+    private authService: AuthService
   ) {}
 
   loginForm!: FormGroup;
   hidePassword!: boolean;
-  isLoading!: boolean;
-  subscription!: Subscription;
+  ssoProviders = SSOProviders;
 
   get invalidLogin(): boolean {
-    return this.loginForm.invalid || this.isLoading;
+    return this.loginForm.invalid;
   }
 
   ngOnInit(): void {
@@ -40,37 +34,16 @@ export class LandingComponent implements OnInit {
     if (this.authService.isAuthenticated()) {
       this.router.navigate(['/dashboard']);
     }
-
-    this.subscription = this.store.select('ui').subscribe({
-      next: ({ isLoading }) => {
-        this.isLoading = isLoading;
-      },
-    });
   }
 
-  onSubmit(): void {
-    if (this.loginForm.invalid) {
-      return;
-    }
-
-    const { username, password } = this.loginForm.value;
-
-    this.store.dispatch(isLoading());
-
+  ssoLogin(providerId: string): void {
     this.authService
-      .loginUser(username, password)
+      .loginSSO(providerId)
       .then(() => {
-        this.store.dispatch(stopLoading());
         this.router.navigate(['/dashboard']);
       })
-      .catch((error) => {
-        this.store.dispatch(stopLoading());
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: error.message,
-          confirmButtonColor: '#1877f2',
-        });
+      .catch((err) => {
+        console.error(err);
       });
   }
 }

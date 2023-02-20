@@ -5,73 +5,49 @@
         <div class="landing-page-img-container">
           <img class="landing-page-logo mw-100" src="assets/img/logo.png" />
         </div>
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-          <div class="example-container">
-            <mat-form-field>
-              <input
-                matInput
-                placeholder="{{
-                  'forms.login.usernamePlaceholder' | translate
-                }}"
-                type="email"
-                name="username"
-                formControlName="username"
-                autocomplete="off"
-              />
-              <mat-error>{{
-                "forms.login.usernameError" | translate
-              }}</mat-error>
-            </mat-form-field>
 
-            <mat-form-field class="margin-bottom-sm">
-              <input
-                matInput
-                placeholder="{{
-                  'forms.login.passwordPlaceholder' | translate
-                }}"
-                [type]="hidePassword ? 'password' : 'text'"
-                name="password"
-                formControlName="password"
-                autocomplete="off"
-              />
-              <mat-icon
-                class="pointer"
-                matSuffix
-                (click)="hidePassword = !hidePassword"
-                >{{ hidePassword ? "visibility" : "visibility_off" }}</mat-icon
-              >
-              <mat-error>{{
-                "forms.login.passwordError" | translate
-              }}</mat-error>
-            </mat-form-field>
-            <button
-              type="submit"
-              color="primary"
-              mat-raised-button
-              [disabled]="invalidLogin"
-            >
-              {{ "general.buttons.logIn" | translate }}
-            </button>
-
-            <div
-              fxLayout="row"
-              fxLayoutAlign="end center"
-              class="pointer margin-top-12"
-            >
-              {{ "general.message.forgotPassword" | translate }}
-            </div>
-          </div>
-        </form>
-
-        <mat-divider class="margin-divider"></mat-divider>
-
-        <span class="row margin-bottom-10">
-          <span class="center-text"> {{ "general.or" | translate }} </span>
-        </span>
-
-        <button type="button" class="login-with-google-btn" matRipple>
-          {{ "general.buttons.googleSignIn" | translate }}
-        </button>
+        <div class="example-container">
+          <button
+            type="button"
+            class="login-with-btn google-btn-img margin-bottom-10"
+            matRipple
+            (click)="ssoLogin(ssoProviders.google)"
+          >
+            {{ "general.buttons.googleSignIn" | translate }}
+          </button>
+          <button
+            type="button"
+            class="login-with-btn twitter-btn-img margin-bottom-10"
+            matRipple
+            (click)="ssoLogin(ssoProviders.twitter)"
+          >
+            {{ "general.buttons.twitterSignIn" | translate }}
+          </button>
+          <button
+            type="button"
+            class="login-with-btn facebook-btn-img margin-bottom-10"
+            matRipple
+            (click)="ssoLogin(ssoProviders.facebook)"
+          >
+            {{ "general.buttons.facebookSignIn" | translate }}
+          </button>
+          <button
+            type="button"
+            class="login-with-btn github-btn-img margin-bottom-10"
+            matRipple
+            (click)="ssoLogin(ssoProviders.github)"
+          >
+            {{ "general.buttons.githubSignIn" | translate }}
+          </button>
+          <button
+            type="button"
+            class="login-with-btn apple-btn-img"
+            matRipple
+            (click)="ssoLogin(ssoProviders.apple)"
+          >
+            {{ "general.buttons.appleSignIn" | translate }}
+          </button>
+        </div>
       </div>
     </div>
   </div>
