@@ -17,7 +17,7 @@ import { of } from 'rxjs';
 describe('NavMenuComponent', () => {
   let component: NavMenuComponent;
   let fixture: ComponentFixture<NavMenuComponent>;
-  let service: AuthService;
+  // let service: AuthService;
   let translate: AppTranslateService;
 
   const menuTranslateJson = [
@@ -71,7 +71,7 @@ describe('NavMenuComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(NavMenuComponent);
     component = fixture.componentInstance;
-    service = TestBed.inject(AuthService);
+    // service = TestBed.inject(AuthService);
     translate = TestBed.inject(AppTranslateService);
     fixture.detectChanges();
   });

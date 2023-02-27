@@ -76,7 +76,7 @@ export class NavMenuComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  userLogout() {
+  userLogout(): void {
     this.logout.emit();
   }
 

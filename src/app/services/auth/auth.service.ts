@@ -35,8 +35,9 @@ export class AuthService {
       prompt: 'select_account',
     });
 
-    if (providerId === SSOProviders.facebook)
+    if (providerId === SSOProviders.facebook) {
       oAuthProvider.addScope('public_profile');
+    }
 
     return this.auth.signInWithPopup(oAuthProvider);
   }
