@@ -1,0 +1,33 @@
+@import 'src/style/vars/variables';
+
+table {
+    width: 100%;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.mat-header-cell {
+    font-weight: bold;
+}
+
+.mat-cell,
+.mat-header-cell {
+    word-wrap: break-word;
+    display: table-cell;
+    padding-right: $s-base-2x;
+    line-break: unset;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.mat-row,
+.mat-header-row {
+    display: table-row;
+}
+
+.mat-form-field {
+    width: 100%;
+}

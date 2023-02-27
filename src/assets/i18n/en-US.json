@@ -11,6 +11,7 @@
     "toDate": "To Date",
     "warning": "Warning",
     "dashboard": "Dashboard",
+    "filter": "Filter ...",
     "or": "OR",
     "buttons": {
       "approve": "Approve",
@@ -88,5 +89,13 @@
         }
       ]
     }
-  ]
+  ],
+  "dashboard": {
+    "title": "Devices status",
+    "table": {
+      "status": "Status",
+      "devices": "Devices",
+      "percentage": "Percentage"
+    }
+  }
 }

@@ -23,6 +23,15 @@ body {
   margin-bottom: -$p-main-container;
 }
 
+.body-container {
+  position: relative;
+  padding: $s-base $s-base (
+    $p-main-container + $s-base
+  );
+height: auto;
+width: 100%;
+}
+
 .text-brand {
   color: $color-brand-logo;
 }
