@@ -1,36 +1,29 @@
-FROM node:12 as build
+FROM node:18.14.2
 
-WORKDIR /app
+# Need chrome for headless browser tests. However, this build will fail on M1
+# Macs because Chrome does not ship with ARM compatibility. Furthermore, the
+# unit tests do not run and there are currently no instructions to run the test.
+# Therefore, revisit this at a later time to install an ARM-compatible headless
+# browser and get the tests running again.
 
-COPY . .
-RUN npm install \
-&& npm run build
+ENV PUPPETEER_SKIP_DOWNLOAD true
 
-# The standard nginx container just runs nginx. The configuration file added
-# below will be used by nginx.
-FROM nginx:1.21.1
+# RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+# RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+# RUN apt-get update && apt-get install -yq google-chrome-stable
 
-# Copy the content of build folder to designated folder for nginx.
-COPY --from=build /app/dist/anonymizer /usr/share/nginx/html
+# Need firebase
+RUN npm i -g firebase-tools @angular/cli
 
-# Remove all existing nginx configuration files.
-RUN rm /etc/nginx/conf.d/*
+# Install dependencies
+COPY package.json /code/package.json
+COPY package-lock.json /code/package-lock.json
+WORKDIR /code
+RUN npm ci
 
-# Copy the customized configuration file to the directory in the docker image.
-ADD ./http.conf /etc/nginx/conf.d/default.conf
+# Build angular app
+COPY . /code
+RUN ng build
 
-# Install dumb-init for graceful termination
-RUN apt-get update -y \
-    && apt-get install -y dumb-init
-
-WORKDIR /home/nginx
-COPY ./startup.sh ./startup.sh
-RUN chmod +x ./startup.sh
-
-
-# Runs "/usr/bin/dumb-init -- /my/script --with --args"
-# This signals that NGINX should shutdown gracefully
-ENTRYPOINT [ "/usr/bin/dumb-init", "--rewrite", "15:0", "--" ]
-
-# Instruct docker to use our script as the entry point
-CMD [ "bash", "-c", "/home/nginx/startup.sh" ]
+# Run the app
+ENTRYPOINT ["ng", "serve", "--host", "0.0.0.0", "--port", "4200"]

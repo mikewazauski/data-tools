@@ -1,5 +1,5 @@
 <div *ngIf="user">
-  <img src="assets/img/user-avatar.png"/>
+  <img [src]="user.photoUrl" referrerpolicy="no-referrer"/>
   <mat-card class="no-box-shadow">
     <mat-card-header class="header">
       <mat-card-title>{{ user.name }}</mat-card-title>

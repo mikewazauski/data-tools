@@ -11,15 +11,15 @@ import { MaterialModule } from '../../../modules/material.module';
 import { AppTranslateModule } from '../../../modules/translate.module';
 import { appReducers } from '../../../store/app.reducer';
 
-import { LogoutComponent } from './logout.component';
+import { UserInfoComponent } from './user-info.component';
 
 describe('LogoutComponent', () => {
-  let component: LogoutComponent;
-  let fixture: ComponentFixture<LogoutComponent>;
+  let component: UserInfoComponent;
+  let fixture: ComponentFixture<UserInfoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LogoutComponent],
+      declarations: [UserInfoComponent],
       imports: [
         FlexLayoutModule,
         MaterialModule,
@@ -36,7 +36,7 @@ describe('LogoutComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LogoutComponent);
+    fixture = TestBed.createComponent(UserInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
