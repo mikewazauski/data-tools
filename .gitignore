@@ -35,10 +35,11 @@ speed-measure-plugin*.json
 .history/*
 
 # misc
+*/coverage
+/coverage
 /.angular/cache
 /.sass-cache
 /connect.lock
-/coverage
 /libpeerconnection.log
 npm-debug.log
 yarn-error.log

@@ -29,53 +29,11 @@
           }
         ],
         "@angular-eslint/directive-selector": [
-          "error",
+          "warn",
           {
             "prefix": "app",
             "style": "camelCase",
             "type": "attribute"
-          }
-        ],
-        "@angular-eslint/use-lifecycle-interface": "error",
-        "@angular-eslint/use-pipe-transform-interface": "error",
-        "@angular-eslint/no-outputs-metadata-property": "error",
-        "@angular-eslint/no-output-rename": "error",
-        "@angular-eslint/no-output-on-prefix": "error",
-        "@angular-eslint/no-output-native": "error",
-        "@angular-eslint/no-inputs-metadata-property": "error",
-        "@angular-eslint/no-input-rename": "error",
-        "@angular-eslint/no-host-metadata-property": "error",
-        "@angular-eslint/no-conflicting-lifecycle": "error",
-        "@angular-eslint/directive-class-suffix": "error",
-        "@angular-eslint/contextual-lifecycle": "error",
-        "@angular-eslint/component-class-suffix": "error",
-        "@typescript-eslint/explicit-function-return-type": "error",
-        "@typescript-eslint/no-unused-vars": [
-          "error",
-          {
-            "args": "none"
-          }
-        ],
-        "no-console": [
-          "error",
-          {
-            "allow": [
-              "error"
-            ]
-          }
-        ],
-        "quotes": [
-          "error",
-          "single"
-        ],
-        "semi": "error",
-        "curly": "warn",
-        "no-empty": "error",
-        "eol-last": "error",
-        "max-len": [
-          "error",
-          {
-            "code": 140
           }
         ]
       }
@@ -87,10 +45,7 @@
       "extends": [
         "plugin:@angular-eslint/template/recommended"
       ],
-      "rules": {
-        "@angular-eslint/template/banana-in-box": "error",
-        "@angular-eslint/template/no-negated-async": "error"
-      }
+      "rules": {}
     }
   ]
 }

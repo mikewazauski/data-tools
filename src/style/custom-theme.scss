@@ -7,19 +7,18 @@
 
 $custom-typography: mat.define-typography-config(
   $font-family: $fonts-brand,
-  $display-4: mat.define-typography-level(112px, 112px, $fontWeights-light, $fonts-brand, -0.0134em),
-  $display-3: mat.define-typography-level(56px, 56px, $fontWeights-normal, $fonts-brand, -0.0089em),
-  $display-2: mat.define-typography-level(45px, 48px, $fontWeights-normal, $fonts-brand, 0em),
-  $display-1: mat.define-typography-level(34px, 40px, $fontWeights-normal, $fonts-brand, 0.0074em),
-  $headline: mat.define-typography-level(24px, 32px, $fontWeights-normal, $fonts-brand, 0em),
-  $title: mat.define-typography-level(20px, 32px, 500, $fonts-brand, 0.0075em),
-  $subheading-2: mat.define-typography-level($fontSizes-md, $lineHeights-6, $fontWeights-normal, $fonts-brand, 0.0094em),
-  $subheading-1: mat.define-typography-level($fontSizes-sm, $lineHeights-5, $fontWeights-medium, $fonts-brand, 0.0067em),
+  $headline-1: mat.define-typography-level(112px, 112px, $fontWeights-light, $fonts-brand, -0.0134em),
+  $headline-2: mat.define-typography-level(56px, 56px, $fontWeights-normal, $fonts-brand, -0.0089em),
+  $headline-3: mat.define-typography-level(45px, 48px, $fontWeights-normal, $fonts-brand, 0em),
+  $headline-4: mat.define-typography-level(34px, 40px, $fontWeights-normal, $fonts-brand, 0.0074em),
+  $headline-5: mat.define-typography-level(24px, 32px, $fontWeights-normal, $fonts-brand, 0em),
+  $headline-6: mat.define-typography-level(20px, 32px, 500, $fonts-brand, 0.0075em),
+  $subtitle-1: mat.define-typography-level($fontSizes-md, $lineHeights-6, $fontWeights-normal, $fonts-brand, 0.0094em),
+  $subtitle-2: mat.define-typography-level($fontSizes-sm, $lineHeights-5, $fontWeights-medium, $fonts-brand, 0.0067em),
   $body-2: mat.define-typography-level($fontSizes-md, $lineHeights-6, $fontWeights-medium, $fonts-brand, 0.0179em),
   $body-1: mat.define-typography-level($fontSizes-md, $lineHeights-5, $fontWeights-normal, $fonts-brand, 0.0179em),
   $button: mat.define-typography-level($fontSizes-md, $lineHeights-3, $fontWeights-medium, $fonts-brand, 0.0893em),
-  $caption: mat.define-typography-level($fontSizes-sm, $lineHeights-5, $fontWeights-normal, $fonts-brand, 0.0333em),
-  $input: mat.define-typography-level(inherit, 1.25, $fontWeights-normal, $fonts-brand, 1.5px)
+  $caption: mat.define-typography-level($fontSizes-sm, $lineHeights-5, $fontWeights-normal, $fonts-brand, 0.0333em)
 );
 
 $lightTheme-default-hue: 500;
@@ -81,20 +80,18 @@ $dark-theme: mat.define-dark-theme(
   )
 );
 
-@include mat.core($custom-typography);
-
 @include mat.all-component-themes($light-theme);
 
-.mat-raised-button,
-.mat-stroked-button,
-.mat-flat-button {
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-mdc-unelevated-button {
   padding: 0 1.15em;
   margin: 0 0.65em;
   min-width: 3em;
   line-height: 36.4px;
 }
 
-.mat-standard-chip {
+.mat-mdc-standard-chip {
   padding: 0.375em 0.5em;
   min-height: 2em;
 }
