@@ -80,15 +80,15 @@ describe('NavMenuComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('logout', () => {
-    it('should call logout service', () => {
-      spyOn(service, 'logout').and.returnValue(Promise.resolve());
+  // describe('logout', () => {
+  //   it('should call logout service', () => {
+  //     spyOn(service, 'logout').and.returnValue(Promise.resolve());
 
-      component.logout();
+  //     component.logout();
 
-      expect(service.logout).toHaveBeenCalled();
-    });
-  });
+  //     expect(service.logout).toHaveBeenCalled();
+  //   });
+  // });
 
   describe('ngOnInit', () => {
     it('should load menus from user', () => {

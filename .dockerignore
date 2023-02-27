@@ -1,0 +1,16 @@
+.git
+.firebase/
+.github/
+cep-backend/
+dist/
+node_modules/
+
+.dockerignore
+.editorconfig
+.gitignore
+.gitmodules
+.prettierrc
+docker-compose.yml
+Dockerfile
+stack.sh
+README.md

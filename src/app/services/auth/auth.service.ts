@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { map, Observable, Subscription } from 'rxjs';
+import { filter, map, Observable, tap } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Menu, User } from '../../models/models';
+import { User } from '../../models/models';
 import { setUser, unsetUser } from '../../store/actions/auth.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.reducer';
-import { clearMenus, setMenus } from '../../store/actions/ui.actions';
+import { clearMenus } from '../../store/actions/ui.actions';
 import { SSOProviders } from '../../models/enums/sso.enum';
 import { OAuthProvider } from 'firebase/auth';
 
@@ -14,39 +13,20 @@ import { OAuthProvider } from 'firebase/auth';
   providedIn: 'root',
 })
 export class AuthService {
-  private userSuscription!: Subscription;
+  private firebaseUser: User | null = null;
 
-  constructor(
-    private auth: AngularFireAuth,
-    private fireStore: AngularFirestore,
-    private store: Store<AppState>
-  ) {}
+  constructor(private auth: AngularFireAuth, private store: Store<AppState>) {}
 
-  initAuthListener(): void {
-    this.auth.authState.subscribe((fuser) => {
-      if (fuser) {
-        const providerUserInfo = fuser.providerData[0];
-        const user: User = this.getUserInfo(fuser, providerUserInfo);
-
+  get authState(): Observable<boolean> {
+    return this.auth.authState.pipe(
+      filter((firebaseUser) => firebaseUser !== null),
+      tap((firebaseUser: firebase.default.User | null) => {
+        const user: User = this.getUserInfo(firebaseUser!!);
+        this.firebaseUser = user;
         this.store.dispatch(setUser({ user }));
-
-        this.userSuscription = this.fireStore
-          .collection('menus')
-          .valueChanges()
-          .subscribe((firestore: any) => {
-            const menus: Menu[] = firestore as Menu[];
-            this.store.dispatch(setMenus({ menus }));
-          });
-      } else {
-        this.userSuscription?.unsubscribe();
-        this.store.dispatch(unsetUser());
-        this.store.dispatch(clearMenus());
-      }
-    });
-  }
-
-  loginUser(email: string, password: string): Promise<any> {
-    return this.auth.signInWithEmailAndPassword(email, password);
+      }),
+      map(() => this.firebaseUser !== null)
+    );
   }
 
   loginSSO(providerId: string): Promise<any> {
@@ -62,7 +42,6 @@ export class AuthService {
   }
 
   logout(): Promise<void> {
-    this.userSuscription.unsubscribe();
     this.store.dispatch(unsetUser());
     this.store.dispatch(clearMenus());
     return this.auth.signOut();
@@ -72,20 +51,22 @@ export class AuthService {
     return this.auth.authState.pipe(map((fuser) => fuser !== null));
   }
 
-  private getUserInfo(firebaseUser: any, providerUserInfo: any): User {
+  private getUserInfo(firebaseUser: firebase.default.User): User {
+    const providerUserInfo = firebaseUser.providerData[0];
+
     let user: User = {
       uid: firebaseUser.uid,
-      email: providerUserInfo.email,
-      name: providerUserInfo.displayName,
+      email: providerUserInfo!!.email,
+      name: providerUserInfo!!.displayName,
       photoUrl: providerUserInfo
         ? providerUserInfo.photoURL
         : 'assets/img/user-avatar.png',
     };
 
-    if (providerUserInfo.providerId === SSOProviders.google) {
+    if (providerUserInfo!!.providerId === SSOProviders.google) {
       user.name = firebaseUser.displayName;
     }
-    if (providerUserInfo.providerId === SSOProviders.github) {
+    if (providerUserInfo!!.providerId === SSOProviders.github) {
       user.name = 'No name found';
     }
 

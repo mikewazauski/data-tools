@@ -5,7 +5,7 @@
 </div>
 
 <mat-action-list>
-  <button (click)="closeMenu()" mat-list-item [routerLink]="['/dashboard']">
+  <button (click)="closeMenus()" mat-list-item [routerLink]="['/dashboard']">
     <mat-icon mat-list-icon>desktop_windows</mat-icon>
     {{ "general.dashboard" | translate }}
   </button>
@@ -25,7 +25,7 @@
       <mat-list-item
         *ngFor="let submenu of menu.values"
         [routerLink]="submenu.path"
-        (click)="closeMenu()"
+        (click)="closeMenus()"
       >
         <button mat-icon-button>
           <mat-icon>{{ submenu.icon }}</mat-icon>
@@ -39,7 +39,7 @@
 <mat-divider></mat-divider>
 
 <mat-action-list>
-  <button mat-list-item (click)="logout(); closeMenu()">
+  <button mat-list-item (click)="userLogout(); closeMenus();">
     <mat-icon mat-list-icon>logout</mat-icon>
     {{ "general.buttons.logOut" | translate }}
   </button>
