@@ -1,14 +1,13 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": "6d861535-75d4-496d-a171-ba5a7455e265",
-    "defaultCollection": "@angular-eslint/schematics"
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "data-tools": {
+      "root": "",
+      "sourceRoot": "src",
       "projectType": "application",
+      "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -17,67 +16,78 @@
           "strict": true
         }
       },
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/data-tools",
+            "outputPath": "dist/app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
+            "tsConfig": "src/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss", "src/style/custom-theme.scss"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss",
+              "src/style/custom-theme.scss"
+            ],
             "scripts": []
           },
           "configurations": {
+            "local": {
+              "buildOptimizer": false,
+              "extractLicenses": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "sourceMap": true,
+              "namedChunks": true
+            },
             "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "3mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ]
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "local"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "data-tools:build"
+          },
           "configurations": {
+            "local": {
+              "browserTarget": "data-tools:build:local",
+              "disableHostCheck": true
+            },
             "production": {
               "browserTarget": "data-tools:build:production"
-            },
-            "development": {
-              "browserTarget": "data-tools:build:development"
             }
-          },
-          "defaultConfiguration": "development"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -88,39 +98,67 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "codeCoverage": true,
+            "codeCoverageExclude": [
+              "src/assets/**",
+              "src/testing/**/*",
+              "/**/*mock*.ts",
+              "/**/*fake*.ts",
+              "src/app/api/**/*.ts",
+              "src/app/**/*.guard.ts",
+              "src/app/shared/helpers.ts"
+            ],
+            "inlineStyleLanguage": "scss",
+            "karmaConfig": "src/karma.conf.js",
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss", "src/style/custom-theme.scss"],
             "scripts": [],
-            "codeCoverageExclude": [
-              "src/app/models/*.ts",
-              "src/app/guard/*.guard.ts",
-              "src/app/utils/*.stub.ts"
-            ]
-          }
-        },
-        "deploy": {
-          "builder": "@angular/fire:deploy",
-          "options": {
-            "prerender": false,
-            "ssr": false,
-            "browserTarget": "data-tools:build:production",
-            "firebaseProject": "data-tools",
-            "firebaseHostingSite": "data-tools"
+            "styles": [
+              "src/styles.scss",
+              "src/style/custom-theme.scss"
+            ],
+            "tsConfig": "src/tsconfig.spec.json"
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "data-tools-e2e": {
+      "root": "e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "data-tools:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "data-tools:serve:production"
+            }
           }
         }
       }
     }
   },
-  "defaultProject": "data-tools"
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ],
+    "analytics": false
+  }
 }

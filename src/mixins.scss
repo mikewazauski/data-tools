@@ -1,0 +1,33 @@
+@mixin mat-table-columns($columns) {
+  .mat-column- {
+    @each $colName, $props in $columns {
+      $width: map-get($props, 'width');
+
+      &#{$colName} {
+        flex: $width;
+        max-width: $width;
+        padding-right: 10px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+
+$button-height: 30px;
+$dexcom-green: #5fb251;
+
+.mat-mdc-outlined-button {
+  height: $button-height;
+  line-height: $button-height;
+  font-size: 16px;
+  background-color: $dexcom-green;
+  color: #fff;
+}
+
+.mat-mdc-raised-button {
+  background-color: $dexcom-green;
+  color: #fff;
+}
+

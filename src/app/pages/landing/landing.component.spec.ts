@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { AngularFireModule } from '@angular/fire/compat';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Store, StoreModule } from '@ngrx/store';
@@ -14,6 +14,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from '../../services/auth/auth.service';
+import { AuthGuard } from '../../guard/auth.guard';
 
 describe('LandingComponent', () => {
   let component: LandingComponent;
@@ -21,20 +22,24 @@ describe('LandingComponent', () => {
   let store: Store<AppState>;
   let authService: AuthService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [LandingComponent], imports: [ReactiveFormsModule,
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [LandingComponent],
+      imports: [
+        ReactiveFormsModule,
         RouterTestingModule,
         AppRoutingModule,
         AngularFireModule.initializeApp(environment.firebase),
         StoreModule.forRoot(appReducers),
-        TranslateModule, AppTranslateModule,
+        TranslateModule,
+        AppTranslateModule,
         SharedModule,
         HttpClientModule,
-        BrowserAnimationsModule], providers: [AuthService]
-    })
-      .compileComponents();
-  });
+        BrowserAnimationsModule,
+      ],
+      providers: [AuthService, AuthGuard],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LandingComponent);
@@ -46,10 +51,5 @@ describe('LandingComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  describe('onSubmit', () => {
-
-    //Add tests
   });
 });

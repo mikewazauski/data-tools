@@ -1,20 +1,133 @@
+/* You can add global styles to this file, and also import other style files */
 @use 'sass:map';
 
 @import 'src/style/vars/base-colors';
 @import './style/vars/fonts';
 @import './style/vars/variables';
-@import '~bootstrap/scss/bootstrap';
+@import './node_modules/bootstrap/scss/bootstrap';
 
-html,
-body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+@import '@angular/cdk/overlay-prebuilt.css';
+
+mat-spinner {
+  margin: auto;
 }
 
-body {
-  background-color: $lightTheme-secondary-body-color;
+.pl-1 {
+  padding-left: $spacing-1;
+}
+
+.pl-2 {
+  padding-left: $spacing-2;
+}
+
+.pl-3 {
+  padding-left: $spacing-3;
+}
+
+.ml-1 {
+  margin-left: $spacing-1;
+}
+
+.mr-1 {
+  margin-right: $spacing-1;
+}
+
+.mt-1 {
+  margin-top: $spacing-1;
+}
+
+.hidden {
+  display: none;
+}
+
+.float-right {
+  float: right;
+}
+
+.card-header {
+  margin-bottom: 15px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.narrow-field {
+  display: block;
+  margin-left: 45px;
+  max-width: 150px;
+}
+
+.wide-max-width {
+  max-width: 200px;
+}
+
+.wide-width {
+  width: 320px;
+}
+
+.narrow-width {
+  width: 120px;
+}
+
+
+.mat-headline-4 {
+  margin-bottom: 27px;
+}
+
+/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
+mat-card-actions {
+  margin-bottom: 0;
+}
+
+#loading-spinner {
+  position: fixed;
+  z-index: 1031;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mat-mdc-card {
+  margin-bottom: $spacing-2;
+}
+
+/** Disabled input elements should still be very visible since we use them for the 'view' pages */
+.mat-mdc-input-element:disabled {
+  color: $disabled-text-color;
+}
+
+.mat-mdc-radio-button.mat-radio-disabled .mat-radio-outer-circle,
+.mat-radio-button.mat-radio-disabled.mat-radio-checked .mat-radio-outer-circle {
+  border-color: $disabled-text-color !important;
+}
+
+/* TODO(mdc-migration): The following rule targets internal classes of radio that may no longer apply for the MDC version. */
+.mat-mdc-radio-button.mat-radio-disabled .mat-radio-label-content {
+  color: $disabled-text-color !important;
+}
+
+/* TODO(mdc-migration): The following rule targets internal classes of select that may no longer apply for the MDC version. */
+.mat-select-disabled .mat-select-value {
+  color: $disabled-text-color !important;
+}
+
+// Hide form underlines
+/* TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version. */
+.mat-form-field-appearance-legacy.mat-form-field-disabled,
+.mat-form-field-underline {
+  visibility: hidden;
+}
+
+// Hide dropdown arrows
+/* TODO(mdc-migration): The following rule targets internal classes of select that may no longer apply for the MDC version. */
+.mat-mdc-form-field .mat-mdc-select.mat-select-disabled .mat-select-arrow {
+  visibility: hidden;
+}
+
+// Adding this class as the panelClass for snackbars allows \n to render properly.
+.pre-wrap-white-space {
+  white-space: pre-wrap !important;
 }
 
 .main-container {
@@ -32,26 +145,8 @@ height: auto;
 width: 100%;
 }
 
-.text-brand {
-  color: $color-brand-logo;
-}
-
-.mat-progress-spinner circle,
-.mat-spinner circle {
-  stroke: $primary !important;
-}
-
-.smooth-message {
-  width: 100%;
-  font-size: larger;
-  font-weight: lighter;
-  color: $color-brand-secondary;
-  margin: $s-base auto;
-  text-align: center;
-}
-
-.pointer {
-  cursor: pointer;
+.mat-icon {
+  vertical-align: middle;
 }
 
 .no-box-shadow {
